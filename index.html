@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PulseFit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-view="today">
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand-lockup" aria-label="PulseFit">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M13.7 3.6 6.1 13h4.7l-.5 7.4 7.6-9.5h-4.6l.4-7.3Z"></path>
+          </svg>
+        </span>
+        <div>
+          <p>PulseFit</p>
+          <strong id="todayLabel">Сегодня</strong>
+        </div>
+      </div>
+      <button class="streak-pill" id="streakButton" type="button" aria-label="Серия тренировок">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M12 3.5c2.5 2.3 5 5.1 5 9.2a5 5 0 0 1-10 0c0-1.7.8-3.3 2.1-4.4-.1 2 1.2 3.3 2.8 3.3 1.8 0 2.7-1.3 2.7-3 0-1.9-1-3.4-2.6-5.1Z"></path>
+          </svg>
+        </span>
+        <strong id="streakCount">0</strong>
+      </button>
+    </header>
+
+    <main class="view-stack">
+      <section class="view-panel active" data-view-panel="today">
+        <div class="training-board">
+          <section class="focus-strip" aria-label="Текущая тренировка">
+            <div>
+              <p id="selectedPlanMeta">12 мин - все тело</p>
+              <h1 id="selectedPlanTitle">База без инвентаря</h1>
+            </div>
+            <button class="icon-button" id="changePlanButton" type="button" aria-label="Выбрать тренировку">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 10 12 5l5 5M7 14l5 5 5-5"></path>
+              </svg>
+            </button>
+          </section>
+
+          <section class="timer-stage" aria-label="Таймер тренировки">
+            <div class="timer-ring" id="sessionRing" aria-live="polite">
+              <svg viewBox="0 0 120 120" focusable="false" aria-hidden="true">
+                <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-progress" id="ringProgress" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <div class="timer-readout">
+                <span id="currentStepType">Готовность</span>
+                <strong id="timerValue">00:00</strong>
+                <small id="stepCounter">0 / 0</small>
+              </div>
+            </div>
+            <div class="active-step-copy">
+              <p id="nextStepLabel">Следующее упражнение</p>
+              <h2 id="currentStepTitle">Нажми старт</h2>
+              <span id="currentStepHint">Выбери план и начни тренировку.</span>
+            </div>
+            <div class="session-controls">
+              <button class="secondary-control" id="resetSessionButton" type="button" aria-label="Сбросить">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"></path>
+                </svg>
+              </button>
+              <button class="primary-control" id="startPauseButton" type="button">Старт</button>
+              <button class="secondary-control" id="skipStepButton" type="button" aria-label="Следующий шаг">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="m6 5 8 7-8 7V5Zm10 0h2v14h-2V5Z"></path>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          <section class="stats-grid" aria-label="Краткая статистика">
+            <article>
+              <span>Неделя</span>
+              <strong id="weekSessions">0</strong>
+            </article>
+            <article>
+              <span>Минуты</span>
+              <strong id="weekMinutes">0</strong>
+            </article>
+            <article>
+              <span>План</span>
+              <strong id="planStepsCount">0</strong>
+            </article>
+          </section>
+
+          <section class="plan-list" aria-label="Упражнения плана">
+            <div class="section-head">
+              <div>
+                <p>План</p>
+                <h2>Техника движений</h2>
+              </div>
+              <button class="text-button" id="openLibraryButton" type="button">База</button>
+            </div>
+            <div id="planExerciseList" class="exercise-stack"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view-panel="plans" hidden>
+        <div class="plans-view">
+          <div class="section-head">
+            <div>
+              <p>Выбор</p>
+              <h1>Тренировки</h1>
+            </div>
+          </div>
+          <div id="planCards" class="plan-cards"></div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view-panel="library" hidden>
+        <div class="library-view">
+          <div class="library-head">
+            <label class="search-field">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"></path>
+              </svg>
+              <input id="exerciseSearch" type="search" placeholder="Поиск упражнения" autocomplete="off">
+            </label>
+            <div class="filter-row" aria-label="Фильтр упражнений">
+              <button class="active" type="button" data-area-filter="all">Все</button>
+              <button type="button" data-area-filter="legs">Ноги</button>
+              <button type="button" data-area-filter="push">Верх</button>
+              <button type="button" data-area-filter="core">Кор</button>
+              <button type="button" data-area-filter="mobility">Мобилити</button>
+            </div>
+          </div>
+          <div id="libraryList" class="exercise-stack"></div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view-panel="timer" hidden>
+        <div class="custom-timer-view">
+          <div class="section-head">
+            <div>
+              <p>Интервалы</p>
+              <h1>Своя сессия</h1>
+            </div>
+          </div>
+          <section class="interval-panel" aria-label="Настройки интервалов">
+            <div class="number-control">
+              <span>Работа</span>
+              <div>
+                <button type="button" data-step-control="work" data-delta="-5">-</button>
+                <strong id="workDurationValue">35 с</strong>
+                <button type="button" data-step-control="work" data-delta="5">+</button>
+              </div>
+            </div>
+            <div class="number-control">
+              <span>Отдых</span>
+              <div>
+                <button type="button" data-step-control="rest" data-delta="-5">-</button>
+                <strong id="restDurationValue">15 с</strong>
+                <button type="button" data-step-control="rest" data-delta="5">+</button>
+              </div>
+            </div>
+            <div class="number-control">
+              <span>Раунды</span>
+              <div>
+                <button type="button" data-step-control="rounds" data-delta="-1">-</button>
+                <strong id="roundsValue">6</strong>
+                <button type="button" data-step-control="rounds" data-delta="1">+</button>
+              </div>
+            </div>
+            <button class="primary-control full" id="startCustomTimerButton" type="button">Запустить интервалы</button>
+          </section>
+          <section class="tip-panel" aria-label="Подсказка">
+            <strong>Формат</strong>
+            <span id="customTimerSummary">6 раундов: 35 секунд работы и 15 секунд отдыха.</span>
+          </section>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view-panel="progress" hidden>
+        <div class="progress-view">
+          <div class="section-head">
+            <div>
+              <p>История</p>
+              <h1>Прогресс</h1>
+            </div>
+            <button class="text-button danger" id="clearHistoryButton" type="button">Очистить</button>
+          </div>
+          <section class="progress-summary">
+            <article>
+              <span>Всего</span>
+              <strong id="totalSessions">0</strong>
+              <small>тренировок</small>
+            </article>
+            <article>
+              <span>Время</span>
+              <strong id="totalMinutes">0</strong>
+              <small>минут</small>
+            </article>
+          </section>
+          <div id="historyList" class="history-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="tab-bar" aria-label="Основная навигация">
+    <button class="tab-item active" type="button" data-tab="today" aria-label="Сегодня">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h4l2-7 4 14 2-7h2"></path></svg>
+      </span>
+      <span>Сегодня</span>
+    </button>
+    <button class="tab-item" type="button" data-tab="library" aria-label="База">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5v-12ZM4 17.5A2.5 2.5 0 0 1 6.5 15H20"></path></svg>
+      </span>
+      <span>База</span>
+    </button>
+    <button class="tab-item" type="button" data-tab="timer" aria-label="Таймер">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M10 2h4M12 14l3-3M12 22a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path></svg>
+      </span>
+      <span>Таймер</span>
+    </button>
+    <button class="tab-item" type="button" data-tab="progress" aria-label="Прогресс">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5M8 17v-6M13 17V7M18 17v-9M22 19H4"></path></svg>
+      </span>
+      <span>Прогресс</span>
+    </button>
+  </nav>
+
+  <div class="sheet" id="exerciseSheet" hidden aria-hidden="true">
+    <button class="sheet-backdrop" id="sheetBackdrop" type="button" aria-label="Закрыть"></button>
+    <section class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <button class="sheet-close" id="sheetClose" type="button" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="m6 6 12 12M18 6 6 18"></path>
+        </svg>
+      </button>
+      <p id="sheetArea">Техника</p>
+      <h2 id="sheetTitle">Упражнение</h2>
+      <div class="technique-grid" id="techniqueGrid"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-hidden="true">
+    <strong id="toastTitle">Готово</strong>
+    <span id="toastText">Сессия сохранена</span>
+  </div>
+
+  <script src="app.js"></script>
+  <script async src="https://telegram.org/js/telegram-web-app.js" onload="window.initTelegramWebApp?.()"></script>
+</body>
+</html>
