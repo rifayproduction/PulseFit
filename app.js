@@ -8,7 +8,7 @@ function initTelegramWebApp() {
     return;
   }
 
-  tg = webApp;
+  tg = webApp;1
   tg.ready();
   tg.expand();
   tg.setHeaderColor("#101312");
