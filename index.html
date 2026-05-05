@@ -11,9 +11,7 @@
     <header class="top-bar">
       <div class="brand-lockup" aria-label="PulseFit">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M13.7 3.6 6.1 13h4.7l-.5 7.4 7.6-9.5h-4.6l.4-7.3Z"></path>
-          </svg>
+          <img src="assets/pulsefit-icon.png" alt="">
         </span>
         <div>
           <p>PulseFit</p>
@@ -75,20 +73,32 @@
                 </svg>
               </button>
             </div>
+            <div class="rest-adjust-controls" id="restAdjustControls" hidden>
+              <button type="button" id="decreaseRestButton">-15с</button>
+              <span>Отдых</span>
+              <button type="button" id="increaseRestButton">+15с</button>
+            </div>
+            <div class="finish-card" id="finishCard" hidden>
+              <strong id="finishTitle">Готово</strong>
+              <span id="finishMeta">Сессия сохранена</span>
+            </div>
           </section>
 
           <section class="stats-grid" aria-label="Краткая статистика">
             <article>
-              <span>Неделя</span>
+              <span>Тренировок</span>
               <strong id="weekSessions">0</strong>
+              <small>за 7 дней</small>
             </article>
             <article>
               <span>Минуты</span>
               <strong id="weekMinutes">0</strong>
+              <small>за 7 дней</small>
             </article>
             <article>
-              <span>План</span>
+              <span>Упражнений</span>
               <strong id="planStepsCount">0</strong>
+              <small>в плане</small>
             </article>
           </section>
 
@@ -129,53 +139,90 @@
             <div class="filter-row" aria-label="Фильтр упражнений">
               <button class="active" type="button" data-area-filter="all">Все</button>
               <button type="button" data-area-filter="legs">Ноги</button>
-              <button type="button" data-area-filter="push">Верх</button>
+              <button type="button" data-area-filter="chest">Грудь</button>
+              <button type="button" data-area-filter="back">Спина</button>
+              <button type="button" data-area-filter="shoulders">Плечи</button>
+              <button type="button" data-area-filter="arms">Руки</button>
               <button type="button" data-area-filter="core">Кор</button>
-              <button type="button" data-area-filter="mobility">Мобилити</button>
             </div>
           </div>
           <div id="libraryList" class="exercise-stack"></div>
         </div>
       </section>
 
-      <section class="view-panel" data-view-panel="timer" hidden>
-        <div class="custom-timer-view">
+      <section class="view-panel" data-view-panel="builder" hidden>
+        <div class="builder-view">
           <div class="section-head">
             <div>
-              <p>Интервалы</p>
-              <h1>Своя сессия</h1>
+              <p>Конструктор</p>
+              <h1>Своя тренировка</h1>
             </div>
           </div>
-          <section class="interval-panel" aria-label="Настройки интервалов">
-            <div class="number-control">
-              <span>Работа</span>
-              <div>
-                <button type="button" data-step-control="work" data-delta="-5">-</button>
-                <strong id="workDurationValue">35 с</strong>
-                <button type="button" data-step-control="work" data-delta="5">+</button>
-              </div>
+
+          <section class="builder-panel" aria-label="Настройки своей тренировки">
+            <label class="builder-name-field">
+              <span>Название</span>
+              <input id="builderNameInput" type="text" maxlength="36" placeholder="Например: Грудь + трицепс" autocomplete="off">
+            </label>
+            <div class="builder-meta-grid">
+              <article>
+                <span>Упражнений</span>
+                <strong id="builderExerciseCount">0</strong>
+              </article>
+              <article>
+                <span>Подходов</span>
+                <strong id="builderSetCount">0</strong>
+              </article>
             </div>
-            <div class="number-control">
-              <span>Отдых</span>
-              <div>
-                <button type="button" data-step-control="rest" data-delta="-5">-</button>
-                <strong id="restDurationValue">15 с</strong>
-                <button type="button" data-step-control="rest" data-delta="5">+</button>
-              </div>
-            </div>
-            <div class="number-control">
-              <span>Раунды</span>
-              <div>
-                <button type="button" data-step-control="rounds" data-delta="-1">-</button>
-                <strong id="roundsValue">6</strong>
-                <button type="button" data-step-control="rounds" data-delta="1">+</button>
-              </div>
-            </div>
-            <button class="primary-control full" id="startCustomTimerButton" type="button">Запустить интервалы</button>
+            <button class="text-button full" id="saveBuilderWorkoutButton" type="button">Сохранить в выбор</button>
+            <button class="primary-control full" id="startBuilderWorkoutButton" type="button">Запустить тренировку</button>
           </section>
-          <section class="tip-panel" aria-label="Подсказка">
-            <strong>Формат</strong>
-            <span id="customTimerSummary">6 раундов: 35 секунд работы и 15 секунд отдыха.</span>
+
+          <section class="builder-section" aria-label="Базовые тренировки">
+            <div class="section-head">
+              <div>
+                <p>Шаблоны</p>
+                <h2>Базовые тренировки</h2>
+              </div>
+            </div>
+            <div id="builderPresetList" class="builder-preset-list"></div>
+          </section>
+
+          <section class="builder-section" aria-label="Выбранные упражнения">
+            <div class="section-head">
+              <div>
+                <p>План</p>
+                <h2>Выбранные упражнения</h2>
+              </div>
+            </div>
+            <div id="builderList" class="builder-list"></div>
+          </section>
+
+          <section class="builder-section" aria-label="Добавить упражнение">
+            <div class="section-head">
+              <div>
+                <p>База</p>
+                <h2>Добавить упражнение</h2>
+              </div>
+            </div>
+            <div class="library-head">
+              <label class="search-field">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"></path>
+                </svg>
+                <input id="builderExerciseSearch" type="search" placeholder="Поиск для добавления" autocomplete="off">
+              </label>
+              <div class="filter-row" aria-label="Фильтр добавления упражнений">
+                <button class="active" type="button" data-builder-area-filter="all">Все</button>
+                <button type="button" data-builder-area-filter="legs">Ноги</button>
+                <button type="button" data-builder-area-filter="chest">Грудь</button>
+                <button type="button" data-builder-area-filter="back">Спина</button>
+                <button type="button" data-builder-area-filter="shoulders">Плечи</button>
+                <button type="button" data-builder-area-filter="arms">Руки</button>
+                <button type="button" data-builder-area-filter="core">Кор</button>
+              </div>
+            </div>
+            <div id="builderExerciseList" class="exercise-stack"></div>
           </section>
         </div>
       </section>
@@ -220,11 +267,11 @@
       </span>
       <span>База</span>
     </button>
-    <button class="tab-item" type="button" data-tab="timer" aria-label="Таймер">
+    <button class="tab-item" type="button" data-tab="builder" aria-label="Сборка">
       <span class="tab-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false"><path d="M10 2h4M12 14l3-3M12 22a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path></svg>
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14M7 6h2M15 18h2M16 6h1M7 18h1"></path></svg>
       </span>
-      <span>Таймер</span>
+      <span>Сборка</span>
     </button>
     <button class="tab-item" type="button" data-tab="progress" aria-label="Прогресс">
       <span class="tab-icon" aria-hidden="true">
@@ -249,8 +296,11 @@
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-hidden="true">
-    <strong id="toastTitle">Готово</strong>
-    <span id="toastText">Сессия сохранена</span>
+    <div class="toast-copy">
+      <strong id="toastTitle">Готово</strong>
+      <span id="toastText">Сессия сохранена</span>
+    </div>
+    <button class="toast-action" id="toastActionButton" type="button" hidden>Отменить</button>
   </div>
 
   <script src="app.js"></script>
