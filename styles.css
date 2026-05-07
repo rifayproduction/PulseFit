@@ -77,6 +77,14 @@ svg {
   background: linear-gradient(180deg, rgba(16, 19, 18, 0.96), rgba(16, 19, 18, 0));
 }
 
+body:not([data-view="today"]) .top-bar {
+  display: none;
+}
+
+body:not([data-view="today"]) .view-stack {
+  min-height: calc(100vh - 112px);
+}
+
 .brand-lockup {
   display: flex;
   align-items: center;
@@ -557,6 +565,56 @@ svg {
   text-align: left;
 }
 
+#libraryList .exercise-card,
+#builderExerciseList .exercise-card {
+  gap: 10px;
+  min-height: 64px;
+  padding: 9px 10px;
+  border-radius: 18px;
+}
+
+#libraryList .exercise-card .exercise-badge,
+#builderExerciseList .exercise-card .exercise-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+#libraryList .exercise-card .exercise-badge svg,
+#builderExerciseList .exercise-card .exercise-badge svg {
+  width: 23px;
+}
+
+#libraryList .exercise-card .exercise-copy strong,
+#builderExerciseList .exercise-card .exercise-copy strong {
+  font-size: 14px;
+}
+
+#libraryList .exercise-card .exercise-copy span,
+#builderExerciseList .exercise-card .exercise-copy span {
+  margin-top: 3px;
+  font-size: 11px;
+}
+
+#libraryList .exercise-card .duration-chip {
+  min-width: 42px;
+  padding: 6px 7px;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+#builderExerciseList .add-exercise-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px;
+}
+
+#builderExerciseList .add-exercise-card .mini-icon-button.add {
+  width: 36px;
+  height: 36px;
+  border-color: rgba(85, 214, 143, 0.28);
+  background: rgba(85, 214, 143, 0.1);
+}
+
 .exercise-badge {
   display: inline-flex;
   align-items: center;
@@ -947,6 +1005,69 @@ svg {
 
 .builder-detail-fields input::placeholder {
   color: var(--faint);
+}
+
+.builder-item {
+  padding: 10px;
+  border-radius: 18px;
+}
+
+.builder-item .exercise-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+.builder-item .exercise-badge svg {
+  width: 23px;
+}
+
+.builder-item .exercise-copy strong {
+  font-size: 14px;
+}
+
+.builder-item .exercise-copy span {
+  margin-top: 3px;
+  font-size: 11px;
+}
+
+.builder-prescription {
+  gap: 6px;
+}
+
+.builder-format-lock,
+.builder-stepper,
+.builder-detail-fields label {
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.builder-format-lock span,
+.builder-stepper span,
+.builder-detail-fields span {
+  font-size: 10px;
+}
+
+.builder-format-lock strong {
+  min-height: 32px;
+}
+
+.builder-stepper div {
+  grid-template-columns: 26px minmax(24px, 1fr) 26px;
+}
+
+.builder-stepper button {
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
+}
+
+.builder-stepper strong {
+  font-size: 12px;
+}
+
+.builder-detail-fields input {
+  height: 30px;
 }
 
 .mini-icon-button {
