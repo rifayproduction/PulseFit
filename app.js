@@ -257,6 +257,97 @@ const EXERCISES = [
     },
   },
   {
+    id: "dumbbell_lunge",
+    name: "Выпады с гантелями",
+    area: "legs",
+    equipment: "гантели",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["ягодицы", "квадрицепс", "кор"],
+    focus: "Ноги, ягодицы, баланс",
+    cue: "Держи гантели спокойно по бокам, а шаг делай контролируемо.",
+    technique: {
+      setup: ["Встань ровно с гантелями по бокам.", "Собери корпус и выбери длину шага без потери равновесия."],
+      movement: ["Сделай шаг вперед и опустись до комфортной глубины.", "Оттолкнись передней ногой и вернись в стойку."],
+      breathing: ["Вдох на опускании.", "Выдох на возвращении."],
+      mistakes: ["Не заваливай колено внутрь.", "Не бей задним коленом о пол."],
+    },
+  },
+  {
+    id: "lateral_lunge",
+    name: "Боковые выпады",
+    area: "legs",
+    equipment: "без инвентаря / гантель",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["ягодицы", "бедра", "приводящие мышцы"],
+    focus: "Бедра, ягодицы, боковая подвижность",
+    cue: "Уходи тазом назад в рабочую ногу, а вторая нога остается вытянутой.",
+    technique: {
+      setup: ["Встань широко, стопы направь вперед или слегка наружу.", "Держи корпус собранным, гантель можно держать у груди."],
+      movement: ["Смести таз в сторону и согни рабочую ногу.", "Вернись через пятку в центр и повтори на другую сторону."],
+      breathing: ["Вдох на опускании.", "Выдох на возвращении."],
+      mistakes: ["Не заваливай колено внутрь.", "Не округляй спину ради глубины."],
+    },
+  },
+  {
+    id: "step_up",
+    name: "Шаги на опору",
+    area: "legs",
+    equipment: "опора / гантели",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["ягодицы", "квадрицепс", "кор"],
+    focus: "Ноги, ягодицы, баланс",
+    cue: "Поднимайся силой ноги на опоре, а не отталкивайся задней ногой.",
+    technique: {
+      setup: ["Поставь стопу на устойчивую опору.", "Корпус держи ровно, гантели по бокам по желанию."],
+      movement: ["Поднимись на опору и полностью выпрями рабочую ногу.", "Опустись медленно, сохраняя контроль колена."],
+      breathing: ["Выдох на подъеме.", "Вдох при спуске."],
+      mistakes: ["Не выбирай слишком высокую опору.", "Не заваливайся корпусом вперед."],
+    },
+  },
+  {
+    id: "wall_sit",
+    name: "Стульчик у стены",
+    area: "legs",
+    equipment: "стена",
+    level: "средне",
+    format: "время",
+    defaultSeconds: 40,
+    defaultRest: 60,
+    muscles: ["квадрицепс", "ягодицы", "кор"],
+    focus: "Ноги, выносливость",
+    cue: "Держи бедра под нагрузкой и не съезжай ниже комфортного угла.",
+    technique: {
+      setup: ["Прижмись спиной к стене и шагни стопами вперед.", "Опустись до угла примерно 90 градусов или выше, если тяжело."],
+      movement: ["Удерживай позицию без движения.", "Поднимись вверх через пятки после конца подхода."],
+      breathing: ["Дыши ровно.", "Не задерживай дыхание на жжении в ногах."],
+      mistakes: ["Не своди колени внутрь.", "Не отрывай поясницу от стены."],
+    },
+  },
+  {
+    id: "jump_squat",
+    name: "Выпрыгивания из приседа",
+    area: "legs",
+    equipment: "без инвентаря",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 8,
+    muscles: ["ноги", "ягодицы", "кор"],
+    focus: "Ноги, взрывная сила",
+    cue: "Прыжок мягкий: приземляйся на согнутые колени и сразу собирай корпус.",
+    technique: {
+      setup: ["Поставь стопы чуть шире таза.", "Собери пресс и держи грудь открытой."],
+      movement: ["Сделай присед до комфортной глубины.", "Выпрыгни вверх и мягко приземлись обратно в присед."],
+      breathing: ["Выдох на прыжке.", "Вдох при опускании."],
+      mistakes: ["Не приземляйся на прямые ноги.", "Не делай упражнение, если болят колени."],
+    },
+  },
+  {
     id: "bulgarian_split_squat",
     name: "Болгарские выпады с гантелями",
     area: "legs",
@@ -326,7 +417,7 @@ const EXERCISES = [
   },
   {
     id: "one_arm_dumbbell_row",
-    name: "Тяга гантели одной рукой",
+    name: "Тяга гантели с опорой",
     area: "back",
     equipment: "гантель, опора",
     level: "средне",
@@ -339,6 +430,133 @@ const EXERCISES = [
       movement: ["Тяни локоть назад и слегка вверх.", "Опускай гантель до растяжения спины."],
       breathing: ["Выдох на тяге.", "Вдох на опускании."],
       mistakes: ["Не разворачивай корпус рывком.", "Не подтягивай плечо к уху."],
+    },
+  },
+  {
+    id: "negative_pullup",
+    name: "Негативные подтягивания",
+    area: "back",
+    equipment: "перекладина",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 5,
+    muscles: ["широчайшие", "бицепс", "верх спины"],
+    focus: "Спина, хват, контроль опускания",
+    cue: "Главная работа здесь - медленно опускаться, а не любой ценой забраться наверх.",
+    technique: {
+      setup: ["Встань на опору и выйди подбородком выше перекладины.", "Собери лопатки вниз и держи корпус напряженным."],
+      movement: ["Медленно опускайся 3-5 секунд.", "Снова зайди наверх через опору, не прыжком из виса."],
+      breathing: ["Сделай вдох перед опусканием.", "Выдыхай плавно по ходу движения."],
+      mistakes: ["Не падай вниз без контроля.", "Не дергай шеей к перекладине."],
+    },
+  },
+  {
+    id: "band_assisted_pullup",
+    name: "Подтягивания с резинкой",
+    area: "back",
+    equipment: "перекладина, резинка",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 6,
+    muscles: ["широчайшие", "бицепс", "верх спины"],
+    focus: "Спина, подтягивания, техника",
+    cue: "Резинка помогает, но тягу все равно начинай спиной.",
+    technique: {
+      setup: ["Закрепи резинку на перекладине и поставь в нее стопу или колено.", "Возьмись за перекладину и собери лопатки."],
+      movement: ["Тяни грудь к перекладине без рывка.", "Опускайся полностью под контролем."],
+      breathing: ["Выдох на подтягивании.", "Вдох при опускании."],
+      mistakes: ["Не раскачивайся.", "Не позволяй резинке резко выбрасывать тело вверх."],
+    },
+  },
+  {
+    id: "bar_hang",
+    name: "Вис на перекладине",
+    area: "back",
+    equipment: "перекладина",
+    level: "новичок",
+    format: "время",
+    defaultSeconds: 30,
+    defaultRest: 60,
+    muscles: ["хват", "предплечья", "плечевой пояс"],
+    focus: "Хват, плечи, вытяжение спины",
+    cue: "Виси спокойно, без раскачки, и не проваливай плечи к ушам.",
+    technique: {
+      setup: ["Возьмись за перекладину комфортным хватом.", "Слегка подтяни лопатки вниз и держи корпус спокойным."],
+      movement: ["Держи вис нужное время.", "Сойди с перекладины через опору или мягкое приземление."],
+      breathing: ["Дыши ровно без задержки.", "На усталости делай длинный выдох."],
+      mistakes: ["Не раскачивайся.", "Не спрыгивай резко, если устали плечи или хват."],
+    },
+  },
+  {
+    id: "pull_up",
+    name: "Классические подтягивания",
+    area: "back",
+    equipment: "перекладина",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 6,
+    muscles: ["широчайшие", "верх спины", "бицепс"],
+    focus: "Спина, хват, подтягивания",
+    cue: "Начинай движение лопатками и тяни грудь к перекладине без раскачки.",
+    technique: {
+      setup: ["Возьмись за перекладину хватом чуть шире плеч.", "Повисни спокойно и слегка опусти лопатки вниз."],
+      movement: ["Подтягивайся до уровня подбородка или груди.", "Опускайся под контролем до почти прямых рук."],
+      breathing: ["Выдох на подъеме.", "Вдох при опускании."],
+      mistakes: ["Не дергайся ногами.", "Не сокращай амплитуду ради повторов."],
+    },
+  },
+  {
+    id: "chin_up",
+    name: "Подтягивания обратным хватом",
+    area: "back",
+    equipment: "перекладина",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 6,
+    muscles: ["широчайшие", "бицепс", "верх спины"],
+    focus: "Спина, бицепс, тяга",
+    cue: "Обратный хват сильнее включает бицепс, но корпус все равно держи жестко.",
+    technique: {
+      setup: ["Возьмись за перекладину ладонями к себе.", "Собери пресс и убери раскачку."],
+      movement: ["Тяни грудь к перекладине.", "Опускайся плавно без провала в плечах."],
+      breathing: ["Выдох на подъеме.", "Вдох вниз."],
+      mistakes: ["Не задирай подбородок.", "Не бросай тело вниз после верхней точки."],
+    },
+  },
+  {
+    id: "inverted_row",
+    name: "Австралийские подтягивания",
+    area: "back",
+    equipment: "низкая перекладина / опора",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["широчайшие", "верх спины", "бицепс"],
+    focus: "Спина, тяга, контроль корпуса",
+    cue: "Тело остается прямой линией, тяни грудь к перекладине.",
+    technique: {
+      setup: ["Возьмись за низкую перекладину и выведи тело под углом.", "Собери пресс и ягодицы."],
+      movement: ["Подтяни грудь к опоре, сводя лопатки.", "Опустись медленно до прямых рук."],
+      breathing: ["Выдох на тяге.", "Вдох при опускании."],
+      mistakes: ["Не провисай тазом.", "Не тянись подбородком вместо грудной клетки."],
+    },
+  },
+  {
+    id: "resistance_band_row",
+    name: "Тяга резинки к поясу",
+    area: "back",
+    equipment: "резинка",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 12,
+    muscles: ["широчайшие", "ромбовидные", "задняя дельта"],
+    focus: "Спина, лопатки, осанка",
+    cue: "В конце тяги сведи лопатки, но не поднимай плечи к ушам.",
+    technique: {
+      setup: ["Закрепи резинку перед собой или упрись стопами в ее центр.", "Возьми концы резинки и выровняй спину."],
+      movement: ["Тяни локти назад к поясу.", "Верни руки вперед медленно, сохраняя натяжение."],
+      breathing: ["Выдох на тяге.", "Вдох на возврате."],
+      mistakes: ["Не округляй спину.", "Не дергай резинку корпусом."],
     },
   },
   {
@@ -427,6 +645,42 @@ const EXERCISES = [
     },
   },
   {
+    id: "seated_dumbbell_shoulder_press",
+    name: "Жим гантелей сидя",
+    area: "shoulders",
+    equipment: "гантели, опора",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["плечи", "трицепс"],
+    focus: "Плечи, трицепс, стабильность",
+    cue: "Сидя легче убрать раскачку, но поясницу все равно держи спокойно.",
+    technique: {
+      setup: ["Сядь ровно и поставь стопы устойчиво.", "Подними гантели к плечам, локти чуть впереди корпуса."],
+      movement: ["Выжми гантели вверх над плечами.", "Опусти до уровня плеч без удара и рывка."],
+      breathing: ["Выдох на жиме.", "Вдох при опускании."],
+      mistakes: ["Не прогибай поясницу.", "Не своди гантели с силой наверху."],
+    },
+  },
+  {
+    id: "dumbbell_thruster",
+    name: "Трастер с гантелями",
+    area: "shoulders",
+    equipment: "гантели",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 8,
+    muscles: ["ноги", "плечи", "трицепс", "кор"],
+    focus: "Плечи, ноги, все тело",
+    cue: "Это присед плюс жим: ноги помогают вытолкнуть гантели вверх.",
+    technique: {
+      setup: ["Держи гантели у плеч, стопы чуть шире таза.", "Собери корпус и держи локти под гантелями."],
+      movement: ["Сядь в присед до комфортной глубины.", "Вставая, сразу выжми гантели над головой."],
+      breathing: ["Вдох в приседе.", "Выдох на жиме вверх."],
+      mistakes: ["Не прогибай поясницу в жиме.", "Не бросай гантели на плечи при опускании."],
+    },
+  },
+  {
     id: "arnold_press",
     name: "Жим Арнольда",
     area: "shoulders",
@@ -458,6 +712,24 @@ const EXERCISES = [
       movement: ["Подними руки до уровня плеч.", "Опусти медленно, не теряя напряжение."],
       breathing: ["Выдох на подъеме.", "Вдох вниз."],
       mistakes: ["Не раскачивай корпус.", "Не поднимай плечи к ушам."],
+    },
+  },
+  {
+    id: "dumbbell_shrug",
+    name: "Шраги с гантелями",
+    area: "shoulders",
+    equipment: "гантели",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 15,
+    muscles: ["трапеции", "предплечья"],
+    focus: "Трапеции, хват",
+    cue: "Поднимай плечи строго вверх, без круговых движений.",
+    technique: {
+      setup: ["Встань ровно с гантелями по бокам.", "Шею держи длинной, взгляд вперед."],
+      movement: ["Подними плечи вверх к ушам.", "Опусти их медленно до полного растяжения."],
+      breathing: ["Выдох на подъеме.", "Вдох вниз."],
+      mistakes: ["Не вращай плечами.", "Не запрокидывай голову назад."],
     },
   },
   {
@@ -597,6 +869,97 @@ const EXERCISES = [
     },
   },
   {
+    id: "parallel_bar_dips",
+    name: "Отжимания на брусьях",
+    area: "arms",
+    equipment: "брусья",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 8,
+    muscles: ["трицепс", "грудь", "плечи"],
+    focus: "Трицепс, грудь, плечевой пояс",
+    cue: "Опускайся только до комфортной глубины и держи плечи под контролем.",
+    technique: {
+      setup: ["Возьмись за брусья и выйди в верхнюю позицию.", "Слегка наклони корпус и опусти плечи от ушей."],
+      movement: ["Сгибай локти и опускайся до комфортной глубины.", "Выжимайся вверх без резкого замка в локтях."],
+      breathing: ["Вдох вниз.", "Выдох на подъеме."],
+      mistakes: ["Не проваливай плечи вперед.", "Не работай через боль в грудине или плечах."],
+    },
+  },
+  {
+    id: "wrist_curl_seated",
+    name: "Сгибания запястий сидя",
+    area: "arms",
+    equipment: "гантели",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 15,
+    muscles: ["предплечья", "сгибатели запястья"],
+    focus: "Предплечья, хват",
+    cue: "Движение маленькое, но контроль важнее веса.",
+    technique: {
+      setup: ["Сядь и положи предплечья на бедра ладонями вверх.", "Держи гантели ближе к пальцам, запястья за краем коленей."],
+      movement: ["Согни запястья вверх.", "Опусти гантели медленно до растяжения предплечий."],
+      breathing: ["Выдох на подъеме.", "Вдох при опускании."],
+      mistakes: ["Не подключай локти.", "Не бери вес, который ломает амплитуду."],
+    },
+  },
+  {
+    id: "reverse_wrist_curl",
+    name: "Обратные сгибания запястий",
+    area: "arms",
+    equipment: "гантели",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 15,
+    muscles: ["предплечья", "разгибатели запястья"],
+    focus: "Верх предплечий, контроль кисти",
+    cue: "Бери легче, чем на обычные сгибания: разгибатели быстро устают.",
+    technique: {
+      setup: ["Сядь и положи предплечья на бедра ладонями вниз.", "Запястья оставь за краем коленей."],
+      movement: ["Подними кисти вверх небольшой амплитудой.", "Опусти медленно, не бросая вес."],
+      breathing: ["Выдох на подъеме.", "Вдох при опускании."],
+      mistakes: ["Не раскачивай руками.", "Не разгибай локти вместе с кистями."],
+    },
+  },
+  {
+    id: "reverse_dumbbell_curl",
+    name: "Обратные сгибания рук с гантелями",
+    area: "arms",
+    equipment: "гантели",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 12,
+    muscles: ["брахиалис", "бицепс", "предплечья"],
+    focus: "Бицепс, предплечья, хват",
+    cue: "Ладони смотрят вниз, локти остаются рядом с корпусом.",
+    technique: {
+      setup: ["Возьми гантели верхним хватом.", "Встань ровно, плечи опусти."],
+      movement: ["Согни руки, не меняя положения кистей.", "Опусти гантели медленно до почти прямых рук."],
+      breathing: ["Выдох на подъеме.", "Вдох при опускании."],
+      mistakes: ["Не раскачивай корпус.", "Не заваливай запястья вниз."],
+    },
+  },
+  {
+    id: "farmer_carry",
+    name: "Фермерская прогулка с гантелями",
+    area: "arms",
+    equipment: "гантели",
+    level: "средне",
+    format: "время",
+    defaultSeconds: 40,
+    defaultRest: 60,
+    muscles: ["хват", "предплечья", "трапеции", "кор"],
+    focus: "Хват, кор, осанка",
+    cue: "Иди ровно, будто несешь вес без права раскачиваться.",
+    technique: {
+      setup: ["Возьми гантели по бокам и выпрямись.", "Опусти плечи, собери пресс и держи взгляд вперед."],
+      movement: ["Иди маленькими устойчивыми шагами.", "Держи корпус ровным до конца подхода."],
+      breathing: ["Дыши ровно на каждом шаге.", "Не задерживай дыхание под весом."],
+      mistakes: ["Не сутулься.", "Не позволяй гантелям раскачивать корпус."],
+    },
+  },
+  {
     id: "plank",
     name: "Планка",
     area: "core",
@@ -648,6 +1011,24 @@ const EXERCISES = [
     },
   },
   {
+    id: "weighted_crunch",
+    name: "Скручивания с гантелью",
+    area: "core",
+    equipment: "гантель",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 20,
+    muscles: ["прямая мышца живота", "кор"],
+    focus: "Пресс, контроль нагрузки",
+    cue: "Гантель добавляет нагрузку, но движение остается коротким и чистым.",
+    technique: {
+      setup: ["Ляг на спину, согни колени и прижми гантель к груди.", "Шею держи нейтрально, локти расслабь."],
+      movement: ["Скрути верх спины и подними лопатки.", "Опустись медленно, не расслабляя пресс полностью."],
+      breathing: ["Выдох на подъеме.", "Вдох при опускании."],
+      mistakes: ["Не тянись подбородком к груди.", "Не выбирай вес, из-за которого дергается поясница."],
+    },
+  },
+  {
     id: "reverse_crunch",
     name: "Обратные скручивания",
     area: "core",
@@ -662,6 +1043,135 @@ const EXERCISES = [
       movement: ["Подкрути таз и слегка подними его от пола.", "Верни ноги медленно, не теряя контроля поясницы."],
       breathing: ["Выдох на подкручивании.", "Вдох при возврате."],
       mistakes: ["Не раскачивай ноги.", "Не прогибай поясницу внизу."],
+    },
+  },
+  {
+    id: "hanging_knee_raise",
+    name: "Подъем коленей к груди в висе",
+    area: "core",
+    equipment: "перекладина",
+    level: "сложно",
+    format: "повторы",
+    defaultReps: 12,
+    muscles: ["пресс", "сгибатели бедра", "хват"],
+    focus: "Пресс, вис, контроль таза",
+    cue: "Поднимай колени прессом, а не раскачкой корпуса.",
+    technique: {
+      setup: ["Повисни на перекладине удобным хватом.", "Опусти плечи от ушей и останови раскачку."],
+      movement: ["Подними колени к груди и слегка подкрути таз.", "Опусти ноги медленно до спокойного виса."],
+      breathing: ["Выдох на подъеме коленей.", "Вдох при опускании."],
+      mistakes: ["Не махай ногами.", "Не запрокидывай голову назад."],
+    },
+  },
+  {
+    id: "lying_leg_raise",
+    name: "Подъем ног лежа",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 15,
+    muscles: ["низ живота", "кор", "сгибатели бедра"],
+    focus: "Низ пресса, контроль поясницы",
+    cue: "Поясница не должна отрываться от пола в нижней точке.",
+    technique: {
+      setup: ["Ляг на спину и положи руки вдоль корпуса или под таз.", "Прижми поясницу к полу."],
+      movement: ["Подними прямые или слегка согнутые ноги вверх.", "Опусти их медленно до точки, где поясница остается прижатой."],
+      breathing: ["Выдох на подъеме.", "Вдох на опускании."],
+      mistakes: ["Не бросай ноги вниз.", "Не продолжай амплитуду, если поясница выгибается."],
+    },
+  },
+  {
+    id: "neck_isometry",
+    name: "Изометрия шеи",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "новичок",
+    format: "время",
+    defaultSeconds: 15,
+    defaultRest: 30,
+    muscles: ["шея", "верх спины"],
+    focus: "Шея, осанка, мягкое укрепление",
+    cue: "Давление легкое и ровное: шея сопротивляется, но голова не двигается.",
+    technique: {
+      setup: ["Сядь или встань ровно, макушкой тянись вверх.", "Ладонь поставь на лоб, затылок или висок по направлению подхода."],
+      movement: ["Мягко дави головой в ладонь и удерживай напряжение.", "Меняй направления: лоб, затылок, левый висок, правый висок."],
+      breathing: ["Дыши спокойно все удержание.", "Не задерживай дыхание на напряжении."],
+      mistakes: ["Не дави резко.", "Не запрокидывай голову и не работай через боль."],
+    },
+  },
+  {
+    id: "bird_dog",
+    name: "Берд-дог",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "новичок",
+    format: "повторы",
+    defaultReps: 10,
+    muscles: ["кор", "ягодицы", "разгибатели спины"],
+    focus: "Кор, поясница, стабильность",
+    cue: "Двигайся медленно, будто на спине стоит стакан воды.",
+    technique: {
+      setup: ["Встань на четвереньки, ладони под плечами, колени под тазом.", "Слегка напряги пресс."],
+      movement: ["Вытяни противоположные руку и ногу.", "Вернись в центр и повтори на другую сторону."],
+      breathing: ["Выдох на вытяжении.", "Вдох при возвращении."],
+      mistakes: ["Не прогибай поясницу.", "Не разворачивай таз в сторону."],
+    },
+  },
+  {
+    id: "hollow_hold",
+    name: "Холлоу удержание",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "сложно",
+    format: "время",
+    defaultSeconds: 25,
+    defaultRest: 60,
+    muscles: ["пресс", "глубокий кор"],
+    focus: "Кор, жесткость корпуса",
+    cue: "Поясница прижата к полу, ребра закрыты, ноги не тянут спину в прогиб.",
+    technique: {
+      setup: ["Ляг на спину и прижми поясницу к полу.", "Подними лопатки и ноги на комфортную высоту."],
+      movement: ["Удерживай позицию без раскачки.", "Упрости вариант, согнув колени, если поясница отрывается."],
+      breathing: ["Дыши коротко и ровно.", "Не задерживай дыхание."],
+      mistakes: ["Не отрывай поясницу.", "Не зажимай шею подбородком."],
+    },
+  },
+  {
+    id: "plank_shoulder_taps",
+    name: "Планка с касанием плеч",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "средне",
+    format: "повторы",
+    defaultReps: 16,
+    muscles: ["кор", "плечи", "грудь"],
+    focus: "Кор, плечи, анти-ротация",
+    cue: "Касайся плеча рукой, но таз почти не должен качаться.",
+    technique: {
+      setup: ["Встань в упор лежа, ладони под плечами.", "Поставь стопы шире, если сложно держать таз ровно."],
+      movement: ["Коснись одной рукой противоположного плеча.", "Верни ладонь на пол и повтори другой рукой."],
+      breathing: ["Дыши ровно.", "Выдыхай на касании плеча."],
+      mistakes: ["Не раскачивай таз.", "Не проваливайся между лопатками."],
+    },
+  },
+  {
+    id: "scissor_kicks",
+    name: "Ножницы лежа",
+    area: "core",
+    equipment: "без инвентаря",
+    level: "средне",
+    format: "время",
+    defaultSeconds: 30,
+    defaultRest: 45,
+    muscles: ["низ живота", "кор", "сгибатели бедра"],
+    focus: "Низ пресса, контроль поясницы",
+    cue: "Ноги двигаются быстро, но поясница остается прижатой.",
+    technique: {
+      setup: ["Ляг на спину и прижми поясницу к полу.", "Подними ноги невысоко над полом."],
+      movement: ["Перекрещивай ноги небольшими быстрыми движениями.", "Подними ноги выше, если поясница начинает отрываться."],
+      breathing: ["Дыши ритмично.", "Не задерживай дыхание в напряжении."],
+      mistakes: ["Не выгибай поясницу.", "Не задирай голову рывком."],
     },
   },
   {
@@ -978,6 +1488,7 @@ let hiddenPresetIds = loadHiddenPresetIds();
 let areaFilter = "all";
 let builderWorkout = loadBuilderWorkout();
 let builderAreaFilter = "all";
+let openBuilderDetailIndexes = new Set();
 let session = loadActiveSession() || createEmptySession();
 let ticker = null;
 let toastTimer = null;
@@ -1865,6 +2376,7 @@ function loadSavedWorkout(workoutId, options = {}) {
     title: workout.title,
     exercises: cloneBuilderItems(workout.exercises),
   };
+  openBuilderDetailIndexes.clear();
   saveBuilderWorkout();
   window.clearInterval(ticker);
   session = createEmptySession();
@@ -1961,6 +2473,9 @@ function renderBuilderList() {
     const targetValue = isTimeMode ? `${builderItem.seconds}с` : builderItem.reps;
     const formatLabel = isTimeMode ? "Сек" : "Повт";
     const canUseWeight = supportsExerciseWeight(exercise);
+    const detailsOpen = openBuilderDetailIndexes.has(index);
+    const hasDetails = Boolean((canUseWeight && builderItem.weight) || builderItem.note);
+    const detailButtonLabel = detailsOpen ? "Скрыть вес и заметку" : "Вес и заметка";
     const weightField = canUseWeight ? `
         <label>
           <span>Вес</span>
@@ -1984,6 +2499,9 @@ function renderBuilderList() {
         </button>
         <button class="mini-icon-button" type="button" aria-label="Опустить ниже" ${index === builderWorkout.exercises.length - 1 ? "disabled" : ""}>
           <svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <button class="mini-icon-button detail${detailsOpen ? " active" : ""}${hasDetails ? " filled" : ""}" type="button" aria-label="${detailButtonLabel}" aria-expanded="${detailsOpen}">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M4 7h8M16 7h4M14 5v4M4 17h4M12 17h8M10 15v4"></path></svg>
         </button>
         <button class="mini-icon-button danger" type="button" aria-label="Удалить упражнение">
           <svg viewBox="0 0 24 24" focusable="false"><path d="M6 7h12M10 11v6M14 11v6M9 7l1-3h4l1 3M8 7l1 13h6l1-13"></path></svg>
@@ -2019,6 +2537,7 @@ function renderBuilderList() {
           </div>
         </div>
       </div>
+      ${detailsOpen ? `
       <div class="builder-detail-fields${canUseWeight ? "" : " single"}">
         ${weightField}
         <label>
@@ -2026,11 +2545,13 @@ function renderBuilderList() {
           <input type="text" value="${escapeHtml(builderItem.note)}" maxlength="80" placeholder="${canUseWeight ? "Темп, техника, вес по рукам" : "Темп, техника, самочувствие"}" data-builder-item-field="note">
         </label>
       </div>
+      ` : ""}
     `;
-    const [upButton, downButton, deleteButton] = item.querySelectorAll(".mini-icon-button");
+    const [upButton, downButton, detailButton, deleteButton] = item.querySelectorAll(".mini-icon-button");
     item.querySelector(".builder-item-main").addEventListener("click", () => openExerciseSheet(exercise));
     upButton.addEventListener("click", () => moveBuilderExercise(index, -1));
     downButton.addEventListener("click", () => moveBuilderExercise(index, 1));
+    detailButton.addEventListener("click", () => toggleBuilderDetails(index));
     deleteButton.addEventListener("click", () => removeBuilderExercise(index));
     item.querySelectorAll("[data-builder-item-control]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -2333,6 +2854,10 @@ function getBuilderStepHint(item, set, targetLabel) {
 }
 
 function getDefaultReps(exercise) {
+  if (Number(exercise?.defaultReps)) {
+    return clamp(Number(exercise.defaultReps), 1, 50);
+  }
+
   if (exercise.area === "arms" || exercise.area === "shoulders") {
     return 12;
   }
@@ -2345,10 +2870,18 @@ function getDefaultReps(exercise) {
 }
 
 function getDefaultSeconds(exercise) {
-  return exercise.format === "время" ? 40 : 30;
+  if (exercise.format !== "время") {
+    return 30;
+  }
+
+  return clamp(Number(exercise.defaultSeconds) || 40, 10, 180);
 }
 
 function getDefaultRest(exercise) {
+  if (Number.isFinite(Number(exercise?.defaultRest))) {
+    return clamp(Number(exercise.defaultRest), 0, 240);
+  }
+
   if (exercise.area === "legs" || exercise.level === "сложно") {
     return 75;
   }
@@ -2419,6 +2952,7 @@ function loadBuilderPreset(presetId, options = {}) {
   }
 
   builderWorkout = createBuilderWorkoutFromPreset(preset);
+  openBuilderDetailIndexes.clear();
   saveBuilderWorkout();
   window.clearInterval(ticker);
   session = createEmptySession();
@@ -2435,6 +2969,7 @@ function loadBuilderPreset(presetId, options = {}) {
 
 function removeBuilderExercise(index) {
   const [item] = builderWorkout.exercises.splice(index, 1);
+  openBuilderDetailIndexes.clear();
   saveBuilderWorkout();
   renderBuilder();
 
@@ -2451,8 +2986,20 @@ function moveBuilderExercise(index, delta) {
 
   const [exerciseId] = builderWorkout.exercises.splice(index, 1);
   builderWorkout.exercises.splice(nextIndex, 0, exerciseId);
+  openBuilderDetailIndexes.clear();
   saveBuilderWorkout();
   renderBuilder();
+  tg?.HapticFeedback?.selectionChanged();
+}
+
+function toggleBuilderDetails(index) {
+  if (openBuilderDetailIndexes.has(index)) {
+    openBuilderDetailIndexes.delete(index);
+  } else {
+    openBuilderDetailIndexes.add(index);
+  }
+
+  renderBuilderList();
   tg?.HapticFeedback?.selectionChanged();
 }
 
